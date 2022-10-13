@@ -23,7 +23,7 @@ class Api::V1::TasksController < ApplicationController
 
     if @task.save
       # render json: @task, status: :created, location: @task
-      json_response({ message: "success", data: TActiveModelSerializers::SerializableResource.new(@task, serializer: TaskSerializer) })
+      json_response({ message: "success", data: ActiveModelSerializers::SerializableResource.new(@task, serializer: TaskSerializer) })
     else
       # render json: @task.errors, status: :unprocessable_entity
       raise ExceptionHandler::InvalidAction, @task.errors
